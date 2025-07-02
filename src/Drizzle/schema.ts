@@ -49,6 +49,7 @@ export const DoctorsTable = pgTable("doctors", {
   docId: serial("doc_id").primaryKey(),
   fName: varchar("f_name", { length: 50 }).notNull(),
   lName: varchar("l_name", { length: 50 }).notNull(),
+  email: varchar("email", { length: 100 }).notNull().unique(),
   specialization: text("specialization").notNull(), 
   contactNo: numeric("contact_no").notNull(),
   availableDays:text("available_day").notNull(), 
