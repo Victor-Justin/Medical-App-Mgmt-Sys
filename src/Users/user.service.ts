@@ -76,7 +76,7 @@ export const promoteUserToDoctor = async (userId: number) => {
 
   //Check if doctor exists
   const existingDoctor = await db.query.DoctorsTable.findFirst({
-    where: eq(DoctorsTable.contactNo, user.contactNo),
+    where: eq(DoctorsTable.email, user.email),
   });
 
   if (existingDoctor) {

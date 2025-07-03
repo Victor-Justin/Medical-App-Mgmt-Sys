@@ -9,6 +9,7 @@ import {
   pgEnum,
   varchar,
   boolean,
+  time,
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 
@@ -63,9 +64,10 @@ export const AppointmentsTable = pgTable("appointments", {
   userId: serial("user_id").notNull().references(() => UsersTable.userId, { onDelete: "cascade" }),
   docId: serial("doc_id").notNull().references(() => DoctorsTable.docId, { onDelete: "cascade" }),
   apDate: date("ap_date").notNull(),
-  timeSlot: timestamp("time_slot").notNull(),
+  startTime: time("start_time").notNull(),
+  endTime: time("end_time").notNull(),
   amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
-  apStatus: ApStatusEnum("ap_status").notNull(),
+  apStatus: ApStatusEnum("ap_status").notNull().default("pending"),
   createdOn: timestamp("created_on").notNull(),
   updatedOn: timestamp("updated_on").notNull(),
 });
@@ -76,7 +78,7 @@ export const PaymentsTable = pgTable("payments", {
   transId: serial("trans_id").notNull(),
   apId: serial("ap_id").notNull().references(() => AppointmentsTable.apId, { onDelete: "cascade" }),
   amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
-  payStatus: PayStatusEnum("pay_status").notNull(),
+  payStatus: PayStatusEnum("pay_status").notNull().default("unpaid"),
   payDate: date("pay_date").notNull(),
   createdOn: timestamp("created_on").notNull(),
   updatedOn: timestamp("updated_on").notNull(),
@@ -100,7 +102,7 @@ export const ComplaintsTable = pgTable("complaints", {
   apId: serial("ap_id").notNull().references(() => AppointmentsTable.apId, { onDelete: "cascade" }),
   subject: text("subject").notNull(),
   description: text("description").notNull(),
-  status: ComplaintStatusEnum("complaint_status").notNull(),
+  status: ComplaintStatusEnum("complaint_status").notNull().default("In Progress"),
   createdOn: timestamp("created_on").notNull(),
   updatedOn: timestamp("updated_on").notNull(),
 });
