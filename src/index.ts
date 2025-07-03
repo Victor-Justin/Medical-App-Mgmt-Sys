@@ -4,6 +4,8 @@ import doctorRoutes from "./Doctors/doctors.router";
 import appointmentRoutes from "./Appointments/appointment.router";   
 import cors from "cors";
 import paymentRoutes from "./Payments/payments.router";
+import prescriptionRoutes from "./Prescriptions/prescription.router";
+import complaintRoutes from "./Complaints/complaints.router";
 
 const initializeApp = () => {
   const app = express();
@@ -21,6 +23,8 @@ const initializeApp = () => {
   doctorRoutes(app);
   appointmentRoutes(app);
   paymentRoutes(app);
+  prescriptionRoutes(app);
+  complaintRoutes(app);
 
   return app;
 };
