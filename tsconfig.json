@@ -6,6 +6,7 @@
     // "moduleResolution": "node10",
     "moduleResolution": "nodenext",
     "outDir": "./dist",
+    "isolatedModules": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true, 
     /* Type Checking */

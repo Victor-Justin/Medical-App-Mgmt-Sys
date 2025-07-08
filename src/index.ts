@@ -1,11 +1,12 @@
 import express from "express";
 import userRoutes from "./Users/user.router";       
 import doctorRoutes from "./Doctors/doctors.router";
-import appointmentRoutes from "./Appointments/appointment.router";   
+import appointmentRoutes from "./Appointments/appointments.router";   
 import cors from "cors";
 import paymentRoutes from "./Payments/payments.router";
 import prescriptionRoutes from "./Prescriptions/prescription.router";
 import complaintRoutes from "./Complaints/complaints.router";
+import user from "./Auth/auth.router";
 
 const initializeApp = () => {
   const app = express();
@@ -19,6 +20,7 @@ const initializeApp = () => {
   );
 
   //routes
+  user(app);
   userRoutes(app);
   doctorRoutes(app);
   appointmentRoutes(app);

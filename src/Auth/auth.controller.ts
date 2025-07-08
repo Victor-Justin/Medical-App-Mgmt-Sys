@@ -14,6 +14,11 @@ export const createUserController = async (req: Request, res: Response) => {
         const hashedPassword = await bycrypt.hashSync(password, 10)
         user.password = hashedPassword
 
+
+        const now = new Date();
+        user.createdOn = now;
+        user.updatedOn = now;
+
         // Generate a 6-digit verification code
         const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
         user.verificationCode = verificationCode;
@@ -26,9 +31,9 @@ export const createUserController = async (req: Request, res: Response) => {
             await sendEmail(
                 user.email,
                 "Verify your account",
-                `Hello ${user.lastName}, your verification code is: ${verificationCode}`,
+                `Hello ${user.lName}, your verification code is: ${verificationCode}`,
                 `<div>
-                <h2>Hello ${user.lastName},</h2>
+                <h2>Hello ${user.lName},</h2>
                 <p>Your verification code is: <strong>${verificationCode}</strong></p>
                  <p>Enter this code to verify your account.</p>
                 </div>`
