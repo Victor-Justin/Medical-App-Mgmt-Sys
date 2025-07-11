@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">64.7% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/17</span>
+                <span class='fraction'>11/17</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">53.84% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/13</span>
+                <span class='fraction'>7/13</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -102,30 +102,30 @@
 <a name='L37'></a><a href='#L37'>37</a>
 <a name='L38'></a><a href='#L38'>38</a>
 <a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -140,22 +140,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// Database
-<span class="cstat-no" title="statement not covered" >import { sql } from "drizzle-orm";</span>
-<span class="cstat-no" title="statement not covered" >import db from "../Drizzle/db";</span>
-<span class="cstat-no" title="statement not covered" >import { TIUser, UsersTable } from "../Drizzle/schema";</span>
+import { sql } from "drizzle-orm";
+import db from "../Drizzle/db";
+import { TIUser, UsersTable } from "../Drizzle/schema";
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >createUserService = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync </span>(user: TIUser) =&gt; {</span>
+export const createUserService = <span class="fstat-no" title="function not covered" >async </span>(user: TIUser) =&gt; {
 <span class="cstat-no" title="statement not covered" >    await db.insert(UsersTable).values(user)</span>
 <span class="cstat-no" title="statement not covered" >    return "User created successfully";</span>
 }
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >getUserByEmailService = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync </span>(email: string) =&gt; {</span>
+export const getUserByEmailService = <span class="fstat-no" title="function not covered" >async </span>(email: string) =&gt; {
 <span class="cstat-no" title="statement not covered" >    return await db.query.UsersTable.findFirst({</span>
         where: sql`${UsersTable.email} = ${email}`
     });
 };
 &nbsp;
-export const <span class="cstat-no" title="statement not covered" >verifyUserService = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync </span>(email: string) =&gt; {</span>
+export const verifyUserService = <span class="fstat-no" title="function not covered" >async </span>(email: string) =&gt; {
 <span class="cstat-no" title="statement not covered" >    await db.update(UsersTable)</span>
         .set({ isVerified: true, verificationCode: null })
         .where(sql`${UsersTable.email} = ${email}`);
@@ -163,7 +163,7 @@ export const <span class="cstat-no" title="statement not covered" >verifyUserSer
 &nbsp;
 &nbsp;
 //login a user
-export const <span class="cstat-no" title="statement not covered" >userLoginService = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >a</span>sync </span>(user: TIUser) =&gt; {</span>
+export const userLoginService = <span class="fstat-no" title="function not covered" >async </span>(user: TIUser) =&gt; {
     // email and password
     const { email } = <span class="cstat-no" title="statement not covered" >user;</span>
 &nbsp;
@@ -184,7 +184,7 @@ export const <span class="cstat-no" title="statement not covered" >userLoginServ
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-07-08T05:47:44.154Z
+                at 2025-07-11T07:38:11.918Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -40,32 +40,33 @@ describe('Doctor Controller', () => {
     expect(res.json).toHaveBeenCalledWith(mockDoctors);
   });
 
-  test('getDoctorById should fetch and return doctor by ID', async () => {
-    const mockDoctor = { docId: 1 };
-    (DoctorService.getDoctorById as jest.Mock).mockResolvedValue(mockDoctor);
+test('getDoctorById should fetch and return doctor by ID', async () => {
+  const mockDoctor = [{ doctors: { docId: 1 } }];
+  (DoctorService.getDoctorById as jest.Mock).mockResolvedValue(mockDoctor);
 
-    const req = { params: { id: '1' } } as unknown as Request;
-    const res = mockRes();
-    await DoctorController.getDoctorById(req, res);
+  const req = { params: { id: '1' } } as unknown as Request;
+  const res = mockRes();
+  await DoctorController.getDoctorById(req, res);
 
-    expect(DoctorService.getDoctorById).toHaveBeenCalledWith(1);
-    expect(res.json).toHaveBeenCalledWith(mockDoctor);
-  });
+  expect(DoctorService.getDoctorById).toHaveBeenCalledWith(1);
+  expect(res.json).toHaveBeenCalledWith(mockDoctor[0].doctors);
+});
 
-  test('updateDoctor should update and return doctor', async () => {
-    const mockUpdatedDoctor = { docId: 1, specialization: 'Cardiology' };
-    (DoctorService.updateDoctor as jest.Mock).mockResolvedValue(mockUpdatedDoctor);
+test('updateDoctor should update and return doctor', async () => {
+  const mockUpdatedDoctor = [{ docId: 1, specialization: 'Cardiology' }];
+  (DoctorService.updateDoctor as jest.Mock).mockResolvedValue(mockUpdatedDoctor);
 
-    const req = {
-      params: { id: '1' },
-      body: { specialization: 'Cardiology' },
-    } as unknown as Request;
-    const res = mockRes();
-    await DoctorController.updateDoctor(req, res);
+  const req = {
+    params: { id: '1' },
+    body: { specialization: 'Cardiology' },
+  } as unknown as Request;
+  const res = mockRes();
+  await DoctorController.updateDoctor(req, res);
 
-    expect(DoctorService.updateDoctor).toHaveBeenCalledWith(1, expect.objectContaining(req.body));
-    expect(res.json).toHaveBeenCalledWith(mockUpdatedDoctor);
-  });
+  expect(DoctorService.updateDoctor).toHaveBeenCalledWith(1, expect.objectContaining(req.body));
+  expect(res.json).toHaveBeenCalledWith(mockUpdatedDoctor[0]);
+});
+
 
   test('deleteDoctor should delete and return doctor', async () => {
     const mockDeletedDoctor = { docId: 1, deleted: true };

@@ -13,6 +13,8 @@ export const createUser = async (req: Request, res: Response) => {
 
   const newUser = await UserService.createUser(userData);
   res.status(201).json(newUser);
+
+  
 };
 
 // Fetch users 
@@ -25,8 +27,12 @@ export const getAllUsers = async (req: Request, res: Response) => {
 export const getUserById = async (req: Request, res: Response) => {
   const { id } = req.params;
   const user = await UserService.getUserById(Number(id));
+  if (!user) {
+    return res.status(404).json({ message: "User not found" });
+  }
   res.json(user);
 };
+
 
 // Update user by ID
 export const updateUser = async (req: Request, res: Response) => {
