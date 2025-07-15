@@ -6,8 +6,15 @@ import * as PaymentService from "../Payments/payments.service";
 export const createAppointment = async (req: Request, res: Response) => {
   const now = new Date();
 
+  // Parse start time and compute end time (30 minutes later)
+  const { startTime, apDate } = req.body;
+  const startDateTime = new Date(`${apDate}T${startTime}`);
+  const endDateTime = new Date(startDateTime.getTime() + 30 * 60000); 
+
   const appointmentData = {
     ...req.body,
+    startTime: startDateTime.toTimeString().slice(0, 8), 
+    endTime: endDateTime.toTimeString().slice(0, 8),     // format HH:MM:SS
     createdOn: now,
     updatedOn: now,
   };

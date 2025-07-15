@@ -10,7 +10,23 @@
     "generate": "drizzle-kit generate",
     "migrate": "tsx src/drizzle/migrate.ts",
     "seed": "tsx src/Drizzle/seed.ts",
-    "test": "jest --detectOpenHandles --watchAll"
+    "test": "jest --detectOpenHandles --watchAll",
+    "breakpoint:users": "k6 run perfomance/breakpoint/get.users.breakpoint.ts",
+    "breakpoint:login": "k6 run perfomance/breakpoint/login.breakpoint.ts",
+    "breakpoint:appointments": "k6 run perfomance/breakpoint/get.appointments.breakpoint.ts",
+    "load:users": "k6 run perfomance/load/get.users.load.ts",
+    "load:appointments": "k6 run perfomance/load/get.appointments.load.ts",
+    "load:login": "k6 run perfomance/load/login.load.ts",
+    "smoke:users": "k6 run perfomance/smoke/get.users.smoke.ts",
+    "smoke:login": "k6 run perfomance/smoke/login.smoke.ts",
+    "smoke:register": "k6 run perfomance/smoke/register.smoke.ts",
+    "soak:users": "k6 run perfomance/soak/get.users.soak.ts",
+    "soak:login": "k6 run perfomance/soak/login.soak.ts",
+    "spike:users": "k6 run perfomance/spike/get.users.spike.ts",
+    "spike:login": "k6 run perfomance/spike/login.spike.ts",
+    "stress:users": "k6 run perfomance/stress/get.users.stress.ts",
+    "stress:login": "k6 run perfomance/stress/login.stress.ts"
+
   },
   "keywords": [],
   "author": "",
@@ -33,6 +49,7 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/jsonwebtoken": "^9.0.10",
+    "@types/k6": "^1.1.1",
     "@types/nodemailer": "^6.4.17",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
@@ -40,6 +57,7 @@
     "drizzle-orm": "^0.44.2",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
+    "k6": "^0.0.0",
     "nodemailer": "^7.0.4",
     "pg": "^8.16.3"
   }

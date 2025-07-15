@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1752219492023" clover="3.2.0">
-  <project timestamp="1752219492023" name="All files">
-    <metrics statements="580" coveredstatements="464" conditionals="58" coveredconditionals="38" methods="130" coveredmethods="107" elements="768" coveredelements="609" complexity="0" loc="580" ncloc="580" packages="10" files="27" classes="27"/>
+<coverage generated="1752566098836" clover="3.2.0">
+  <project timestamp="1752566098836" name="All files">
+    <metrics statements="583" coveredstatements="467" conditionals="58" coveredconditionals="38" methods="130" coveredmethods="107" elements="771" coveredelements="612" complexity="0" loc="583" ncloc="583" packages="10" files="27" classes="27"/>
     <package name="src">
       <metrics statements="26" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <file name="index.ts" path="C:\Users\USER\Desktop\Med App Mgmt Sys\Backend\src\index.ts">
@@ -38,40 +38,43 @@
       </file>
     </package>
     <package name="src.Appointments">
-      <metrics statements="68" coveredstatements="64" conditionals="4" coveredconditionals="4" methods="16" coveredmethods="16"/>
+      <metrics statements="71" coveredstatements="67" conditionals="4" coveredconditionals="4" methods="16" coveredmethods="16"/>
       <file name="appointments.controller.ts" path="C:\Users\USER\Desktop\Med App Mgmt Sys\Backend\src\Appointments\appointments.controller.ts">
-        <metrics statements="31" coveredstatements="31" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+        <metrics statements="34" coveredstatements="34" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
         <line num="2" count="7" type="stmt"/>
         <line num="3" count="7" type="stmt"/>
         <line num="6" count="7" type="stmt"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
-        <line num="29" count="2" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="36" count="7" type="stmt"/>
-        <line num="37" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
         <line num="38" count="2" type="stmt"/>
-        <line num="42" count="7" type="stmt"/>
-        <line num="43" count="5" type="stmt"/>
-        <line num="44" count="5" type="stmt"/>
-        <line num="46" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="47" count="2" type="stmt"/>
-        <line num="50" count="2" type="stmt"/>
-        <line num="54" count="7" type="stmt"/>
-        <line num="55" count="3" type="stmt"/>
-        <line num="58" count="3" type="stmt"/>
-        <line num="59" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="60" count="1" type="stmt"/>
-        <line num="63" count="2" type="stmt"/>
-        <line num="69" count="2" type="stmt"/>
+        <line num="43" count="7" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="49" count="7" type="stmt"/>
+        <line num="50" count="5" type="stmt"/>
+        <line num="51" count="5" type="stmt"/>
+        <line num="53" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="61" count="7" type="stmt"/>
+        <line num="62" count="3" type="stmt"/>
+        <line num="65" count="3" type="stmt"/>
+        <line num="66" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="67" count="1" type="stmt"/>
         <line num="70" count="2" type="stmt"/>
-        <line num="74" count="7" type="stmt"/>
-        <line num="75" count="2" type="stmt"/>
         <line num="76" count="2" type="stmt"/>
         <line num="77" count="2" type="stmt"/>
+        <line num="81" count="7" type="stmt"/>
+        <line num="82" count="2" type="stmt"/>
+        <line num="83" count="2" type="stmt"/>
+        <line num="84" count="2" type="stmt"/>
       </file>
       <file name="appointments.router.ts" path="C:\Users\USER\Desktop\Med App Mgmt Sys\Backend\src\Appointments\appointments.router.ts">
         <metrics statements="23" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="6"/>
