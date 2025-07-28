@@ -5,6 +5,7 @@ import {
   getDoctorById,
   updateDoctor,
   deleteDoctor,
+  getDoctorByUserId
 } from "./doctors.controller";
 
 const doctorRoutes = (app: Express) => {
@@ -52,6 +53,15 @@ const doctorRoutes = (app: Express) => {
       next(error);
     }
   });
+  
+  app.route("/doctors/user/:userId").get(async (req, res, next) => {
+    try {
+      await getDoctorByUserId(req, res);
+    } catch (error) {
+      next(error);
+    }
+  });
 };
+
 
 export default doctorRoutes;

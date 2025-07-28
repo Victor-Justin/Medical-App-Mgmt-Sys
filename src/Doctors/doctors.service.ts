@@ -23,6 +23,14 @@ export const createDoctor = (data: any) =>
 export const updateDoctor = (id: number, data: any) =>
   db.update(DoctorsTable).set(data).where(eq(DoctorsTable.docId, id)).returning();
 
+// Get doctor by user ID
+export const getDoctorByUserId = async (userId: number) => {
+  return db.query.DoctorsTable.findFirst({
+    where: eq(DoctorsTable.userId, userId),
+  });
+};
+
+
 // Delete doctor by ID and change to patient
 export const deleteDoctor = async (id: number) => {
   const doctor = await db.query.DoctorsTable.findFirst({

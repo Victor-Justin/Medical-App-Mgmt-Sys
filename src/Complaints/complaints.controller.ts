@@ -58,3 +58,15 @@ export const deleteComplaint = async (req: Request, res: Response) => {
   const deletedComplaint = await ComplaintService.deleteComplaint(Number(id));
   res.json(deletedComplaint);
 };
+
+export const getComplaintsByUserId = async (req: Request, res: Response) => {
+  const { userId } = req.params;
+  const complaints = await ComplaintService.getComplaintsByUserId(Number(userId));
+  res.json(complaints);
+};
+
+export const getComplaintsByDoctorId = async (req: Request, res: Response) => {
+  const { docId } = req.params;
+  const complaints = await ComplaintService.getComplaintsByDoctorId(Number(docId));
+  res.json(complaints);
+};

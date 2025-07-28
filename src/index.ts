@@ -7,6 +7,7 @@ import paymentRoutes from "./Payments/payments.router";
 import prescriptionRoutes from "./Prescriptions/prescription.router";
 import complaintRoutes from "./Complaints/complaints.router";
 import user from "./Auth/auth.router";
+import analyticsRoutes from "./Analytics/analytics.router";
 
 const initializeApp = () => {
   const app = express();
@@ -27,6 +28,7 @@ const initializeApp = () => {
   paymentRoutes(app);
   prescriptionRoutes(app);
   complaintRoutes(app);
+  analyticsRoutes(app);
 
   return app;
 };

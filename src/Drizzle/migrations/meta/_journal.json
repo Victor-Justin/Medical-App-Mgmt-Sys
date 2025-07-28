@@ -22,6 +22,20 @@
       "when": 1751529442111,
       "tag": "0002_clear_misty_knight",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1753178838780,
+      "tag": "0003_absent_firebrand",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1753178943093,
+      "tag": "0004_low_amazoness",
+      "breakpoints": true
     }
   ]
 }

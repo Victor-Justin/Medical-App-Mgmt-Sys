@@ -59,3 +59,16 @@ export const deleteDoctor = async (req: Request, res: Response) => {
   const deletedDoctor = await DoctorService.deleteDoctor(Number(id));
   res.json(deletedDoctor);
 };
+
+export const getDoctorByUserId = async (req: Request, res: Response) => {
+  const { userId } = req.params;
+
+  const doctor = await DoctorService.getDoctorByUserId(Number(userId));
+
+  if (!doctor) {
+    return res.status(404).json({ message: "Doctor not found" });
+  }
+
+  res.json(doctor);
+};
+

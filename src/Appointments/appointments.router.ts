@@ -5,6 +5,10 @@ import {
   getAppointmentById,
   updateAppointment,
   deleteAppointment,
+  getAppointmentsByUserId,
+  cancelAppointment,
+  confirmAppointment,
+  getAppointmentsByDoctorId,
 } from "./appointments.controller";
 
 const appointmentRoutes = (app: Express) => {
@@ -35,6 +39,23 @@ const appointmentRoutes = (app: Express) => {
     }
   });
 
+    app.route("/appointments/user/:userId").get(async (req, res, next) => {
+    try {
+      await getAppointmentsByUserId(req, res);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+app.route("/appointments/doctor/:docId").get(async (req, res, next) => {
+  try {
+    await getAppointmentsByDoctorId(req, res);
+  } catch (error) {
+    next(error);
+  }
+});
+
+
 
   app.route("/appointments/:id").patch(async (req, res, next) => {
     try {
@@ -52,6 +73,24 @@ const appointmentRoutes = (app: Express) => {
       next(error);
     }
   });
+
+    app.route("/appointments/:id/cancel").patch(async (req, res, next) => {
+    try {
+      await cancelAppointment(req, res);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+      app.route("/appointments/:id/confirm").patch(async (req, res, next) => {
+    try {
+      await confirmAppointment(req, res);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+  
 };
 
 export default appointmentRoutes;

@@ -5,6 +5,9 @@ import {
   getPrescriptionById,
   updatePrescription,
   deletePrescription,
+  getPrescriptionsByUserId,
+  getPrescriptionsByDoctor,
+  getPrescriptionsByDoctorAndUser,
 } from "./prescription.controller";
 
 const prescriptionRoutes = (app: Express) => {
@@ -47,6 +50,33 @@ const prescriptionRoutes = (app: Express) => {
       next(err);
     }
   });
+
+    app.route("/prescriptions/user/:userId").get(async (req, res, next) => {
+    try {
+      await getPrescriptionsByUserId(req, res);
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  // NEW: Get all prescriptions by a specific doctor for a specific user
+  app.route("/prescriptions/doctor/:docId/user/:userId").get(async (req, res, next) => {
+    try {
+      await getPrescriptionsByDoctorAndUser(req, res);
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  // NEW: Get all prescriptions by a specific doctor
+  app.route("/prescriptions/doctor/:docId").get(async (req, res, next) => {
+    try {
+      await getPrescriptionsByDoctor(req, res);
+    } catch (err) {
+      next(err);
+    }
+  });
+
 };
 
 export default prescriptionRoutes;

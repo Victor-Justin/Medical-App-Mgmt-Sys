@@ -5,6 +5,8 @@ import {
   getComplaintById,
   updateComplaint,
   deleteComplaint,
+  getComplaintsByUserId,
+  getComplaintsByDoctorId
 } from "./complaints.controller";
 
 const complaintRoutes = (app: Express) => {
@@ -43,6 +45,22 @@ const complaintRoutes = (app: Express) => {
   app.route("/complaints/:id").delete(async (req, res, next) => {
     try {
       await deleteComplaint(req, res);
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.route("/complaints/user/:userId").get(async (req, res, next) => {
+    try {
+      await getComplaintsByUserId(req, res);
+    } catch (err) {
+      next(err);
+    }
+  });
+
+  app.route("/complaints/doctor/:docId").get(async (req, res, next) => {
+    try {
+      await getComplaintsByDoctorId(req, res);
     } catch (err) {
       next(err);
     }

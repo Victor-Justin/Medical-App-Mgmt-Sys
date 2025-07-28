@@ -31,3 +31,11 @@ export const updatePayment = (id: number, data: any) =>
 
 export const deletePayment = (id: number) =>
   db.delete(PaymentsTable).where(eq(PaymentsTable.payId, id)).returning();
+
+export const getPaymentsByUserId = async (userId: number) => {
+  return db
+    .select()
+    .from(PaymentsTable)
+    .leftJoin(AppointmentsTable as any, eq(PaymentsTable.apId, AppointmentsTable.apId))
+    .where(eq(AppointmentsTable.userId, userId));
+};

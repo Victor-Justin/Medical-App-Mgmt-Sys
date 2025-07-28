@@ -58,3 +58,20 @@ export const deletePayment = async (req: Request, res: Response) => {
   const deletedPayment = await PaymentService.deletePayment(Number(id));
   res.json(deletedPayment);
 };
+
+
+export const getPaymentsByUserId = async (req: Request, res: Response) => {
+  const userId = Number(req.params.userId);
+
+  if (isNaN(userId)) {
+    return res.status(400).json({ message: "Invalid user ID" });
+  }
+
+  const payments = await PaymentService.getPaymentsByUserId(userId);
+
+  if (!payments || payments.length === 0) {
+    return res.status(404).json({ message: "No payments found for this user" });
+  }
+
+  res.json(payments);
+};

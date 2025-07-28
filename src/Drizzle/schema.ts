@@ -48,6 +48,7 @@ export const UsersTable = pgTable("users", {
 // Doctors Table
 export const DoctorsTable = pgTable("doctors", {
   docId: serial("doc_id").primaryKey(),
+  userId: serial("user_id").notNull().references(() => UsersTable.userId, { onDelete: "cascade" }),
   fName: varchar("f_name", { length: 50 }).notNull(),
   lName: varchar("l_name", { length: 50 }).notNull(),
   email: varchar("email", { length: 100 }).notNull().unique(),
@@ -66,7 +67,7 @@ export const AppointmentsTable = pgTable("appointments", {
   apDate: date("ap_date").notNull(),
   startTime: time("start_time").notNull(),
   endTime: time("end_time").notNull(),
-  amount: decimal("amount", { precision: 10, scale: 2 }).notNull(),
+  amount: decimal("amount", { precision: 10, scale: 2 }).notNull().default("500.00"),
   apStatus: ApStatusEnum("ap_status").notNull().default("pending"),
   createdOn: timestamp("created_on").notNull(),
   updatedOn: timestamp("updated_on").notNull(),

@@ -5,6 +5,7 @@ import {
   getPaymentById,
   updatePayment,
   deletePayment,
+  getPaymentsByUserId
 } from "./payments.controller";
 
 const paymentRoutes = (app: Express) => {
@@ -47,6 +48,15 @@ const paymentRoutes = (app: Express) => {
       next(err);
     }
   });
+
+
+app.route("/payments/user/:userId").get(async (req, res, next) => {
+  try {
+    await getPaymentsByUserId(req, res);
+  } catch (err) {
+    next(err);
+  }
+});
 };
 
 export default paymentRoutes;
