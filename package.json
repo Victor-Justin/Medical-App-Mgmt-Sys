@@ -26,7 +26,6 @@
     "spike:login": "k6 run perfomance/spike/login.spike.ts",
     "stress:users": "k6 run perfomance/stress/get.users.stress.ts",
     "stress:login": "k6 run perfomance/stress/login.stress.ts"
-
   },
   "keywords": [],
   "author": "",
@@ -45,6 +44,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.0.1",
     "@types/bcryptjs": "^3.0.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",

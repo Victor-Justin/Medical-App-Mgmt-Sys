@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { eq } from "drizzle-orm/sql";
 import db from "../Drizzle/db";
 import { ComplaintsTable, AppointmentsTable, UsersTable, DoctorsTable } from "../Drizzle/schema";
 

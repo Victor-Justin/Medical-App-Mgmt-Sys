@@ -1,5 +1,5 @@
 import db from "../Drizzle/db";
-import { and, eq, count, sql } from "drizzle-orm";
+import { and, eq, count, sql } from "drizzle-orm/sql";
 import {
   UsersTable,
   AppointmentsTable,

@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { eq } from "drizzle-orm/sql";
 import db from "../Drizzle/db";
 import { UsersTable, DoctorsTable, AppointmentsTable, ComplaintsTable, PrescriptionsTable } from "../Drizzle/schema";
 
@@ -67,10 +67,11 @@ export const deleteUser = async (id: number) => {
 
 
 //Changing role to update to doctor
-export const promoteUserToDoctor = async (userId: number) => {
+export const promoteUserToDoctor = async (userId: number) => { console.log(userId)
   const user = await db.query.UsersTable.findFirst({
     where: eq(UsersTable.userId, userId),
   });
+console.log(user)
 
   if (!user) throw new Error("User not found");
 
@@ -88,6 +89,7 @@ export const promoteUserToDoctor = async (userId: number) => {
   const newDoctor = await db
     .insert(DoctorsTable)
     .values({
+      userId: user.userId,
       fName: user.fName,
       lName: user.lName,
       email: user.email,
